@@ -20,19 +20,13 @@ public class main6 {
         MongoCollection<Document> col = db.getCollection("Newspapers");
 
         col.aggregate(Arrays.asList(
-                // Expandir el array de artículos
                 unwind("$articles"),
-                // Filtrar solo artículos de tipo Sports
                 match(eq("articles.type", "Sports")),
-                // Agrupar por nombre del periódico y contar
                 group("$name",
                         sum("sportsArticlesCount", 1)
                 ),
-                // Ordenar por conteo descendente
                 sort(descending("sportsArticlesCount")),
-                // Tomar solo el primero (el que tiene más)
                 limit(1),
-                // Proyectar el resultado
                 project(fields(
                         excludeId(),
                         computed("newspaper", "$_id"),
