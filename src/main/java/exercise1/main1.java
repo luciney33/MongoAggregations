@@ -1,8 +1,14 @@
-import com.mongodb.client.*;
+package exercise1;
+
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import static com.mongodb.client.model.Aggregates.project;
 import static com.mongodb.client.model.Aggregates.unwind;
 import static com.mongodb.client.model.Projections.*;

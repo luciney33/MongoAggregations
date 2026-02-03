@@ -1,3 +1,5 @@
+package exercise1;
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -7,8 +9,8 @@ import org.bson.Document;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.mongodb.client.model.Accumulators.sum;
 import static com.mongodb.client.model.Accumulators.push;
+import static com.mongodb.client.model.Accumulators.sum;
 import static com.mongodb.client.model.Aggregates.*;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.lt;

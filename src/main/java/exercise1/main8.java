@@ -1,3 +1,5 @@
+package exercise1;
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -6,9 +8,12 @@ import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import static com.mongodb.client.model.Aggregates.*;
-import static com.mongodb.client.model.Accumulators.*;
-import static com.mongodb.client.model.Projections.*;
+
+import static com.mongodb.client.model.Accumulators.avg;
+import static com.mongodb.client.model.Aggregates.group;
+import static com.mongodb.client.model.Aggregates.project;
+import static com.mongodb.client.model.Projections.computed;
+import static com.mongodb.client.model.Projections.fields;
 
 public class main8 {
     static void main() {
