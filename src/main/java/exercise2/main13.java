@@ -16,7 +16,7 @@ public class main13 {
      * Get products grouped by price ranges
      * */
 
-    public static void main() {
+    static void main() {
         MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323/");
         MongoDatabase db = mongo.getDatabase("exercise2_lucia");
         MongoCollection<Document> col = db.getCollection("Products");
@@ -38,15 +38,6 @@ public class main13 {
                         ))
                 ),
                 sort(new Document("price", 1))
-        )).into(new ArrayList<>()).forEach(doc -> {
-            System.out.println(String.format("%-30s | Price: $%-6s | Rating: %-4s | Range: %s",
-                    doc.getString("name"),
-                    doc.get("price"),
-                    doc.get("rating"),
-                    doc.getString("priceRange")
-            ));
-        });
-
-        mongo.close();
+        )).into(new ArrayList<>()).forEach(System.out::println);
     }
 }

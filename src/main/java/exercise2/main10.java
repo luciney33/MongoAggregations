@@ -17,7 +17,7 @@ public class main10 {
      * Get the average price of products by type
      */
 
-    public static void main() {
+    static void main() {
         MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323/");
         MongoDatabase db = mongo.getDatabase("exercise2_lucia");
         MongoCollection<Document> col = db.getCollection("Products");
@@ -25,8 +25,6 @@ public class main10 {
                 unwind("$type"),
                 group("$type", avg("avgPrice", "$price")),
                 sort(new Document("avgPrice", -1))
-        )).into(new ArrayList<>()).forEach(doc ->
-                System.out.println("Type: " + doc.get("_id") + " - Avg Price: $" + doc.get("avgPrice"))
-        );
+        )).into(new ArrayList<>()).forEach(System.out::println);
     }
 }
