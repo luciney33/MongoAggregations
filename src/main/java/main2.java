@@ -16,9 +16,8 @@ public class main2 {
     static void main() {
         MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323/");
         MongoDatabase db = mongo.getDatabase("lucia_peñafiel_MongoDB");
-        MongoCollection<Document> readersCol = db.getCollection("Readers");
-
-        readersCol.aggregate(Arrays.asList(
+        MongoCollection<Document> col = db.getCollection("Readers");
+        col.aggregate(Arrays.asList(
                         unwind("$subscriptions"),
                         lookup("Newspapers",
                                 "subscriptions._id",
